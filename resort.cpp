@@ -46,11 +46,12 @@ int RESORT_BY_SDER(pstrJiqun pj, pstrZhdian pz, pstrResortBySder pr)
     {
         while (pz->pNextStrZhdian != NULL)
         {
-            if (pj->lpstrId == pz->lpstrId)
+            if (!strcmp(pj->lpstrId,pz->lpstrId))
             {
                 bMark = true;
                 break;
             }
+            pz = pz->pNextStrZhdian;
         }
         pstrResortBySder prT = FIND_SDER(pj->lpstrSder,pr);
 

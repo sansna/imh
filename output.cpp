@@ -13,8 +13,10 @@ int OUTPUT_QUANTITY(pstrResortBySder prh)
         {
             if (!pdh->bMark)
                 nCount ++;
+            pdh = pdh->pNextStrDone;
         }
         printf("%d\n",nCount);
+        prh = prh->pNextResortBySder;
     }
 
     return 0;

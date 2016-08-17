@@ -30,7 +30,7 @@ int READ_STRJIQUN(FILE *pFile,pstrJiqun p)
     fseek(pFile,55,SEEK_SET);
     while (len - ftell(pFile) > 10)
     {
-        fscanf(pFile,"%[^,],%[^,],%[^,],%[^,],%[^,],%[^\r]\r\n",p->lpstrId,p->lpstrScner,p->lpstrSctime,p->lpstrRctime,p->lpstrSder,p->lpstrOmo);
+        fscanf(pFile," %[^,],%[^,],%[^,],%[^,],%[^,],%[^\r] ",p->lpstrId,p->lpstrScner,p->lpstrSctime,p->lpstrRctime,p->lpstrSder,p->lpstrOmo);
         INIT_STRJIQUN(p->pNextStrJiqun);
         p = p->pNextStrJiqun;
     }
