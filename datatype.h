@@ -5,6 +5,7 @@ const int nMaxID = 15;
 const int nMaxName = 30;
 const int nMaxTime = 26;
 const int nMaxOmo = 10;
+const int nDateLen = 11;
 
 typedef struct STRJIQUN{
     char *lpstrId;

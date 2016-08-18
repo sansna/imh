@@ -1,0 +1,55 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+FIND_SDER	resort.cpp	/^pstrResortBySder FIND_SDER(char *lpstr, pstrResortBySder prh)$/;"	f	language:C++
+FOUTPUT_ALL	output.cpp	/^int FOUTPUT_ALL(char *date, pstrResortBySder prh)$/;"	f	language:C++
+INIT_STRDONE	resort.cpp	/^int INIT_STRDONE(pstrDone &p)$/;"	f	language:C++
+INIT_STRJIQUN	original.cpp	/^int INIT_STRJIQUN(pstrJiqun &p)$/;"	f	language:C++
+INIT_STRRESORTBYSDER	resort.cpp	/^int INIT_STRRESORTBYSDER(pstrResortBySder &p)$/;"	f	language:C++
+INIT_STRZHDIAN	original.cpp	/^int INIT_STRZHDIAN(pstrZhdian &p)$/;"	f	language:C++
+OUTPUT_QUANTITY	output.cpp	/^int OUTPUT_QUANTITY(pstrResortBySder prh)$/;"	f	language:C++
+READ_STRJIQUN	original.cpp	/^int READ_STRJIQUN(FILE *pFile,pstrJiqun p)$/;"	f	language:C++
+READ_STRZHDIAN	original.cpp	/^int READ_STRZHDIAN(FILE *pFile,pstrZhdian p)$/;"	f	language:C++
+RESORT_BY_SDER	resort.cpp	/^int RESORT_BY_SDER(pstrJiqun pj, pstrZhdian pz, pstrResortBySder pr)$/;"	f	language:C++
+STRDONE	datatype.h	/^typedef struct STRDONE{$/;"	s	language:C++
+STRJIQUN	datatype.h	/^typedef struct STRJIQUN{$/;"	s	language:C++
+STRRESORTBYSDER	datatype.h	/^typedef struct STRRESORTBYSDER{$/;"	s	language:C++
+STRZHDIAN	datatype.h	/^typedef struct STRZHDIAN{$/;"	s	language:C++
+_DATATYPE_H	datatype.h	2;"	d	language:C++
+_ORIGINAL_H	original.h	2;"	d	language:C++
+_OUTPUT_H	output.h	2;"	d	language:C++
+_PREDEFINE_H	predefine.h	2;"	d	language:C++
+_RESORT_H	resort.h	2;"	d	language:C++
+bMark	datatype.h	/^    bool bMark;$/;"	m	language:C++	struct:STRDONE
+getDate	date.cpp	/^char *getDate(pstrJiqun p)$/;"	f	language:C++
+lpstrId	datatype.h	/^    char *lpstrId;$/;"	m	language:C++	struct:STRJIQUN
+lpstrId	datatype.h	/^    char *lpstrId;$/;"	m	language:C++	struct:STRZHDIAN
+lpstrOmo	datatype.h	/^    char *lpstrOmo;$/;"	m	language:C++	struct:STRJIQUN
+lpstrRctime	datatype.h	/^    char *lpstrRctime;$/;"	m	language:C++	struct:STRJIQUN
+lpstrScner	datatype.h	/^    char *lpstrScner;$/;"	m	language:C++	struct:STRJIQUN
+lpstrSctime	datatype.h	/^    char *lpstrSctime;$/;"	m	language:C++	struct:STRJIQUN
+lpstrSder	datatype.h	/^    char *lpstrSder;$/;"	m	language:C++	struct:STRJIQUN
+lpstrSder	datatype.h	/^    char *lpstrSder;$/;"	m	language:C++	struct:STRRESORTBYSDER
+main	main.cpp	/^int main()$/;"	f	language:C++
+nDateLen	datatype.h	/^const int nDateLen = 11;$/;"	v	language:C++
+nMaxID	datatype.h	/^const int nMaxID = 15;$/;"	v	language:C++
+nMaxName	datatype.h	/^const int nMaxName = 30;$/;"	v	language:C++
+nMaxOmo	datatype.h	/^const int nMaxOmo = 10;$/;"	v	language:C++
+nMaxTime	datatype.h	/^const int nMaxTime = 26;$/;"	v	language:C++
+pNextResortBySder	datatype.h	/^    STRRESORTBYSDER *pNextResortBySder;$/;"	m	language:C++	struct:STRRESORTBYSDER
+pNextStrDone	datatype.h	/^    STRDONE *pNextStrDone;$/;"	m	language:C++	struct:STRDONE
+pNextStrJiqun	datatype.h	/^    STRJIQUN *pNextStrJiqun;$/;"	m	language:C++	struct:STRJIQUN
+pNextStrZhdian	datatype.h	/^    STRZHDIAN *pNextStrZhdian;$/;"	m	language:C++	struct:STRZHDIAN
+pd	datatype.h	/^    pstrDone pd;$/;"	m	language:C++	struct:STRRESORTBYSDER
+pj	datatype.h	/^    pstrJiqun pj;$/;"	m	language:C++	struct:STRDONE
+pstrDone	datatype.h	/^}strDone,*pstrDone;$/;"	t	language:C++	typeref:struct:STRDONE
+pstrJiqun	datatype.h	/^}strJiqun,*pstrJiqun;$/;"	t	language:C++	typeref:struct:STRJIQUN
+pstrResortBySder	datatype.h	/^}strResortBySder,*pstrResortBySder;$/;"	t	language:C++	typeref:struct:STRRESORTBYSDER
+pstrZhdian	datatype.h	/^}strZhdian,*pstrZhdian;$/;"	t	language:C++	typeref:struct:STRZHDIAN
+strDone	datatype.h	/^}strDone,*pstrDone;$/;"	t	language:C++	typeref:struct:STRDONE
+strJiqun	datatype.h	/^}strJiqun,*pstrJiqun;$/;"	t	language:C++	typeref:struct:STRJIQUN
+strResortBySder	datatype.h	/^}strResortBySder,*pstrResortBySder;$/;"	t	language:C++	typeref:struct:STRRESORTBYSDER
+strZhdian	datatype.h	/^}strZhdian,*pstrZhdian;$/;"	t	language:C++	typeref:struct:STRZHDIAN

@@ -3,6 +3,7 @@
 #include "original.h"
 #include "resort.h"
 #include "output.h"
+#include "date.h"
 
 int main()
 {
@@ -17,6 +18,9 @@ int main()
     INIT_STRZHDIAN(pz);
     READ_STRJIQUN(p1,pj);
     READ_STRZHDIAN(p2,pz);
+
+    char *date = NULL;
+    date = getDate(pj);
     //printf("%s,%s,%s,%s,%s,%s,%s\n",pj->lpstrId,pj->lpstrSder,pj->lpstrScner,pj->lpstrRctime,pj->lpstrSctime,pj->lpstrOmo,pz->lpstrId);
     
     pstrResortBySder prh = NULL;
@@ -24,6 +28,7 @@ int main()
 
     RESORT_BY_SDER(pj,pz,prh);
 
-    OUTPUT_QUANTITY(prh);
+    //OUTPUT_QUANTITY(prh);
+    FOUTPUT_ALL(date,prh);
     return 0;
 }

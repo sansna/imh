@@ -5,5 +5,6 @@
 #include "datatype.h"
 
 int OUTPUT_QUANTITY(pstrResortBySder prh);
+int FOUTPUT_ALL(char *date, pstrResortBySder prh);
 
 #endif
