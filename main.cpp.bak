@@ -8,7 +8,7 @@ int tmain()
     return 0;
 }
 
-int main()
+int smain()
 {
     pstrJiqun pj = NULL;
     pstrResortBySder pr = NULL;
