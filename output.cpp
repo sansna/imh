@@ -48,10 +48,15 @@ int FOUTPUT_ALL(char *date, pstrResortBySder prh)
         pstrDone pd = pr->pd;
         while (pd->pNextStrDone != NULL)
         {
-            fprintf(pFile,"%s,%s,%s,%s,%lf,%d;",pd->pj->lpstrId,pd->pj->lpstrScner,pd->pj->lpstrSctime,pd->pj->lpstrRctime,pd->pj->lfOmo,pd->nMark);
+            //fprintf(pFile,"%s,%s,%s,%s,%lf,%d;",pd->pj->lpstrId,pd->pj->lpstrScner,pd->pj->lpstrSctime,pd->pj->lpstrRctime,pd->pj->lfOmo,pd->nMark);
+            fprintf(pFile,"%s,%s,%s,%s",pd->pj->lpstrId,pd->pj->lpstrScner,pd->pj->lpstrSctime,pd->pj->lpstrRctime);
+            if (pd->pj->lfOmo < 0)
+                fprintf(pFile,",,%d;",pd->nMark);
+            else
+                fprintf(pFile,"%lf,%d;",pd->pj->lfOmo,pd->nMark);
             pd = pd->pNextStrDone;
         }
-        fprintf(pFile,"\r");
+        fprintf(pFile,"\n");
 
         pr = pr->pNextResortBySder;
     }

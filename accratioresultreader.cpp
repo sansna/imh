@@ -20,7 +20,8 @@ int arrreader(__IN__ char *lpstrfilename, __OUT__ pstrJiqun &ph, __OUT__ pstrRes
     {
         int nMark;
         bool ret = true;
-        fscanf(pFile," %[^,],",pr->lpstrSder);
+        fscanf(pFile," %[^,]",pr->lpstrSder);
+        fgetc(pFile);
         fscanf(pFile," %d",&pr->nTotal);
         fgetc(pFile);
         fscanf(pFile," %d",&pr->nUnsent);
@@ -47,8 +48,15 @@ int arrreader(__IN__ char *lpstrfilename, __OUT__ pstrJiqun &ph, __OUT__ pstrRes
             fgetc(pFile);
             fscanf(pFile,"%[^,]",p->lpstrRctime);
             fgetc(pFile);
-            fscanf(pFile,"%lf",&p->lfOmo);
-            fgetc(pFile);
+            char c;
+            fscanf(pFile,"%c",&c);
+            if (c == ',');
+            else
+            {
+                fseek(pFile,-1,SEEK_CUR);
+                fscanf(pFile,"%lf",&p->lfOmo);
+                fgetc(pFile);
+            }
             fscanf(pFile,"%d",&nMark);
             fgetc(pFile);
 
@@ -57,9 +65,11 @@ int arrreader(__IN__ char *lpstrfilename, __OUT__ pstrJiqun &ph, __OUT__ pstrRes
             INIT_STRJIQUN(p->pNextStrJiqun);
             p = p->pNextStrJiqun;
 
-            fscanf(pFile,"%[\r]",lpstrC);
-            if (!strcmp(lpstrC,"\r"))
+            fscanf(pFile,"%[\n]c",lpstrC);
+            if (!strcmp(lpstrC,"\n"))
                 ret = false;
+            else
+                fseek(pFile,-1,SEEK_CUR);
         }while (ret);
         ret = true;
         strcpy(lpstrC,"\0");

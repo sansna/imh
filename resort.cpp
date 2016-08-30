@@ -20,8 +20,8 @@ int INIT_STRRESORTBYSDER(pstrResortBySder &p)
     p->lpstrSder = (char *)malloc(nMaxName);
     p->nTotal = 0;
     p->nUnsent = 0;
-    p->lfSentOmoTotal = 0.0;
-    p->lfLeftOmoTotal = 0.0;
+    p->lfSentOmoTotal = 0.0L;
+    p->lfLeftOmoTotal = 0.0L;
     p->pd = NULL;
     INIT_STRDONE(p->pd);
     p->pNextResortBySder = NULL;
@@ -62,10 +62,12 @@ int RESORT_BY_SDER(pstrJiqun pj, pstrZhdian pz, pstrResortBySder pr)
         prT->nTotal ++;
         if (nMark)
         {
-            prT->lfSentOmoTotal += pj->lfOmo;
+            if (pj->lfOmo > 0)
+                prT->lfSentOmoTotal += pj->lfOmo;
         }
         else{
-            prT->lfLeftOmoTotal += pj->lfOmo;
+            if (pj->lfOmo > 0)
+                prT->lfLeftOmoTotal += pj->lfOmo;
             prT->nUnsent ++;
         }
 

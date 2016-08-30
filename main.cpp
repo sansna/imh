@@ -12,6 +12,6 @@ int main()
 {
     pstrJiqun pj = NULL;
     pstrResortBySder pr = NULL;
-    arrreader((char *)"g2016-08-10",pj,pr);
+    arrreader((char *)"g2016-08-10.csv",pj,pr);
     return 0;
 }
