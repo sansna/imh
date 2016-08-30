@@ -12,7 +12,7 @@ int OUTPUT_QUANTITY(pstrResortBySder prh)
         pstrDone pdh = prh->pd;
         while (pdh->pNextStrDone != NULL)
         {
-            if (!pdh->bMark)
+            if (!pdh->nMark)
                 nCount ++;
             pdh = pdh->pNextStrDone;
         }
@@ -31,17 +31,24 @@ int FOUTPUT_ALL(char *date, pstrResortBySder prh)
     strncpy(ufilename,"u",1);
     strncpy(filename+1,date,nDateLen);
     strncpy(ufilename+1,date,nDateLen);
+    strncpy(filename+1+10,".csv",4);
+    strncpy(ufilename+1+10,".csv",4);
 
     FILE *pFile = NULL;
     pstrResortBySder pr = prh;
     pFile = fopen(filename,"w");
     while (pr->pNextResortBySder != NULL)
     {
+        //note the , ; shall be replaced with chinese punctuations.
         fprintf(pFile,"%s,",pr->lpstrSder);
+        fprintf(pFile,"%d,",pr->nTotal);
+        fprintf(pFile,"%d,",pr->nUnsent);
+        fprintf(pFile,"%lf,",pr->lfSentOmoTotal);
+        fprintf(pFile,"%lf,",pr->lfLeftOmoTotal);
         pstrDone pd = pr->pd;
         while (pd->pNextStrDone != NULL)
         {
-            fprintf(pFile,"%s,%s,%s,%s,%s,%d;",pd->pj->lpstrId,pd->pj->lpstrScner,pd->pj->lpstrSctime,pd->pj->lpstrRctime,pd->pj->lpstrOmo,pd->bMark);
+            fprintf(pFile,"%s,%s,%s,%s,%lf,%d;",pd->pj->lpstrId,pd->pj->lpstrScner,pd->pj->lpstrSctime,pd->pj->lpstrRctime,pd->pj->lfOmo,pd->nMark);
             pd = pd->pNextStrDone;
         }
         fprintf(pFile,"\r");

@@ -1,4 +1,9 @@
+#ifndef _DATE_H
+#define _DATE_H
+
 #include "predefine.h"
 #include "datatype.h"
 
-char *getDate(pstrJiqun p);
+__OUT__ char *getDate(__IN__ pstrJiqun p);
+
+#endif

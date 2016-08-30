@@ -1,19 +1,13 @@
 #ifndef _DATATYPE_H
 #define _DATATYPE_H
 
-const int nMaxID = 15;
-const int nMaxName = 30;
-const int nMaxTime = 26;
-const int nMaxOmo = 10;
-const int nDateLen = 11;
-
 typedef struct STRJIQUN{
     char *lpstrId;
     char *lpstrScner;
     char *lpstrSctime;
     char *lpstrRctime;
     char *lpstrSder;
-    char *lpstrOmo;
+    double lfOmo;
     STRJIQUN *pNextStrJiqun;
 }strJiqun,*pstrJiqun;
 
@@ -24,12 +18,16 @@ typedef struct STRZHDIAN{
 
 typedef struct STRDONE{
     pstrJiqun pj;
-    bool bMark;
+    int nMark;
     STRDONE *pNextStrDone;
 }strDone,*pstrDone;
 
 typedef struct STRRESORTBYSDER{
     char *lpstrSder;
+    int nTotal;
+    int nUnsent;
+    double lfSentOmoTotal;
+    double lfLeftOmoTotal;
     pstrDone pd;
     STRRESORTBYSDER *pNextResortBySder;
 }strResortBySder,*pstrResortBySder;

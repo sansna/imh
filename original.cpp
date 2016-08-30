@@ -6,7 +6,7 @@ int INIT_STRJIQUN(pstrJiqun &p)
 {
     p = (pstrJiqun)malloc(sizeof(strJiqun));
     p->lpstrSder=(char *)malloc(nMaxName);
-    p->lpstrOmo =(char *)malloc(nMaxOmo);
+    p->lfOmo =0.0;
     p->lpstrScner = (char *)malloc(nMaxName);
     p->lpstrSctime=(char *)malloc(nMaxTime);
     p->lpstrRctime = (char *)malloc(nMaxTime);
@@ -23,14 +23,17 @@ int INIT_STRZHDIAN(pstrZhdian &p)
     return 0;
 }
 
-int READ_STRJIQUN(FILE *pFile,pstrJiqun p)
+int READ_STRJIQUN(FILE *pFile,pstrJiqun &ph)
 {
+    INIT_STRJIQUN(ph);
+    pstrJiqun p = ph;
+
     fseek(pFile,0,SEEK_END);
     int len = ftell(pFile);
     fseek(pFile,55,SEEK_SET);
     while (len - ftell(pFile) > 10)
     {
-        fscanf(pFile," %[^,],%[^,],%[^,],%[^,],%[^,],%[^\r] ",p->lpstrId,p->lpstrScner,p->lpstrSctime,p->lpstrRctime,p->lpstrSder,p->lpstrOmo);
+        fscanf(pFile," %[^,],%[^,],%[^,],%[^,],%[^,],%lf ",p->lpstrId,p->lpstrScner,p->lpstrSctime,p->lpstrRctime,p->lpstrSder,&p->lfOmo);
         INIT_STRJIQUN(p->pNextStrJiqun);
         p = p->pNextStrJiqun;
     }
@@ -38,8 +41,10 @@ int READ_STRJIQUN(FILE *pFile,pstrJiqun p)
     return 0;
 }
 
-int READ_STRZHDIAN(FILE *pFile,pstrZhdian p)
+int READ_STRZHDIAN(FILE *pFile,pstrZhdian &ph)
 {
+    INIT_STRZHDIAN(ph);
+    pstrZhdian p = ph;
     fseek(pFile,0,SEEK_END);
     int len = ftell(pFile);
     fseek(pFile,10,SEEK_SET);
@@ -66,6 +71,6 @@ int READ_STRZHDIAN(FILE *pFile,pstrZhdian p)
 //    INIT_STRZHDIAN(pz);
 //    READ_STRJIQUN(p1,pj);
 //    READ_STRZHDIAN(p2,pz);
-//    printf("%s,%s,%s,%s,%s,%s,%s\n",pj->lpstrId,pj->lpstrSder,pj->lpstrScner,pj->lpstrRctime,pj->lpstrSctime,pj->lpstrOmo,pz->lpstrId);
+//    printf("%s,%s,%s,%s,%s,%lf,%s\n",pj->lpstrId,pj->lpstrSder,pj->lpstrScner,pj->lpstrRctime,pj->lpstrSctime,&pj->lfOmo,pz->lpstrId);
 //    return 0;
 //}

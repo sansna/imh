@@ -4,26 +4,23 @@
 #include "resort.h"
 #include "output.h"
 #include "date.h"
+#include "accratio.h"
 
-int main()
+int DoAccRatio(__IN__ char *lpstrFs, __IN__ char *lpstrFr, __OUT__ pstrResortBySder &prh)
 {
     FILE *p1,*p2;
     pstrJiqun pj = NULL;
     pstrZhdian pz = NULL;
-    p1 = fopen("/usr/mf/sto/stodata/send-2.csv","r");
-    p2 = fopen("/usr/mf/sto/stodata/recv.csv","r");
+    p1 = fopen(lpstrFs,"r");
+    p2 = fopen(lpstrFr,"r");
     if (p1 != NULL && p2 != NULL);
     else perror("file open error");
-    INIT_STRJIQUN(pj);
-    INIT_STRZHDIAN(pz);
     READ_STRJIQUN(p1,pj);
     READ_STRZHDIAN(p2,pz);
 
     char *date = NULL;
     date = getDate(pj);
-    //printf("%s,%s,%s,%s,%s,%s,%s\n",pj->lpstrId,pj->lpstrSder,pj->lpstrScner,pj->lpstrRctime,pj->lpstrSctime,pj->lpstrOmo,pz->lpstrId);
     
-    pstrResortBySder prh = NULL;
     INIT_STRRESORTBYSDER(prh);
 
     RESORT_BY_SDER(pj,pz,prh);

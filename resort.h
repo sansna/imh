@@ -5,9 +5,9 @@
 #include "datatype.h"
 
 
-int INIT_STRDONE(pstrDone &p);
-int INIT_STRRESORTBYSDER(pstrResortBySder &p);
-pstrResortBySder FIND_SDER(char *lpstr, pstrResortBySder prh);
-int RESORT_BY_SDER(pstrJiqun pj, pstrZhdian pz, pstrResortBySder pr);
+int INIT_STRDONE(__OUT__ pstrDone &p);
+int INIT_STRRESORTBYSDER(__OUT__ pstrResortBySder &p);
+__OUT__ pstrResortBySder FIND_SDER(__IN__ char *lpstr, __IN__ pstrResortBySder prh);
+int RESORT_BY_SDER(__IN__ pstrJiqun pj, __IN__ pstrZhdian pz, __OUT__ pstrResortBySder pr);
 
 #endif

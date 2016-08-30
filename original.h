@@ -4,9 +4,9 @@
 #include "predefine.h"
 #include "datatype.h"
 
-int INIT_STRJIQUN(pstrJiqun &);
-int INIT_STRZHDIAN(pstrZhdian &p);
-int READ_STRJIQUN(FILE *,pstrJiqun );
-int READ_STRZHDIAN(FILE *,pstrZhdian );
+int INIT_STRJIQUN(__OUT__ pstrJiqun &);
+int INIT_STRZHDIAN(__OUT__ pstrZhdian &p);
+int READ_STRJIQUN(__IN__ FILE *,__OUT__ pstrJiqun &);
+int READ_STRZHDIAN(__IN__ FILE *,__OUT__ pstrZhdian &);
 
 #endif
