@@ -50,7 +50,8 @@ int arrreader(__IN__ char *lpstrfilename, __OUT__ pstrJiqun &ph, __OUT__ pstrRes
             fgetc(pFile);
             char c;
             fscanf(pFile,"%c",&c);
-            if (c == ',');
+            if (c == ',')
+                p->lfOmo = -1.0L;
             else
             {
                 fseek(pFile,-1,SEEK_CUR);
