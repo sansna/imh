@@ -13,11 +13,13 @@ Windows
 -
 To use mingw is suggested.. not supporting C11, so using nmake would 
 causing compiling errors.
+
     make
 
 Unix
 -
 Using the default make to generate the executable.
+
     make
 
 Run
